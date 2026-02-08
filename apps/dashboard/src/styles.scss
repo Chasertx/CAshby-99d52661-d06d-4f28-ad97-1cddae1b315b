@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Transitions for dynamic theme shifting */
+.min-h-screen {
+  transition: background-image 1.2s cubic-bezier(0.4, 0, 0.2, 1), 
+              background-color 1.2s ease;
+  will-change: background-image;
+}
+
+/* Entrance animation for UI elements */
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Float-in effect for the board */
+app-kanban-board {
+  display: block;
+  animation: slideUpFade 0.8s ease-out forwards;
+}
+
+/* Smooth glassmorphism transitions */
+.backdrop-blur-md {
+  transition: backdrop-filter 0.5s ease, background-color 0.5s ease;
+}
+
+/* Target only elements with the custom-scrollbar class */
+.custom-scrollbar {
+  /* For Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
+}
+
+/* For Chrome, Safari, and Edge */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px !important; /* Forces the width */
+  height: 5px !important;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  border-radius: 20px !important;
+  /* Adds a little "invisible" border to simulate padding */
+  border: 1px solid transparent; 
+  background-clip: content-box;
+}
+
+/* Show it more clearly when the user hovers over the column */
+.custom-scrollbar:hover::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3) !important;
+}

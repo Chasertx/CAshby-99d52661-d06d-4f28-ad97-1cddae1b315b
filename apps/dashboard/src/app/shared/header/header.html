@@ -1,0 +1,39 @@
+<header *ngIf="role$ | async as currentRole" class="flex items-center justify-between px-8 py-4 bg-slate-900/50 backdrop-blur-md border-b border-white/5">
+  <div class="flex items-center gap-8">
+    <h1 class="text-xl font-black tracking-tighter text-white uppercase">Task.Mgmt</h1>
+    
+    <nav class="flex items-center bg-black/20 p-1 rounded-xl border border-white/5">
+      <button (click)="setRole(UserRole.OWNER)"
+              [class]="currentRole === UserRole.OWNER ? 'bg-emerald-500/20 text-emerald-400 shadow-sm' : 'text-white/40 hover:text-white/60'"
+              class="px-4 py-1.5 rounded-lg text-xs font-bold transition-all uppercase tracking-widest">
+        Owner
+      </button>
+
+      <button (click)="setRole(UserRole.ADMIN)"
+              [class]="currentRole === UserRole.ADMIN ? 'bg-indigo-500/20 text-indigo-400 shadow-sm' : 'text-white/40 hover:text-white/60'"
+              class="px-4 py-1.5 rounded-lg text-xs font-bold transition-all uppercase tracking-widest">
+        Admin
+      </button>
+
+      <button (click)="setRole(UserRole.VIEWER)"
+              [class]="currentRole === UserRole.VIEWER ? 'bg-white/10 text-white shadow-sm' : 'text-white/40 hover:text-white/60'"
+              class="px-4 py-1.5 rounded-lg text-xs font-bold transition-all uppercase tracking-widest">
+        Viewer
+      </button>
+    </nav>
+  </div>
+
+  <div class="flex items-center gap-4">
+    <button *ngIf="currentRole !== UserRole.VIEWER"
+            (click)="createTask.emit()" 
+            class="flex items-center gap-2 px-4 py-2 bg-white text-black rounded-xl font-bold text-sm hover:bg-emerald-400 transition-colors shadow-lg shadow-emerald-500/10">
+      <span class="text-lg leading-none">+</span>
+      NEW TASK
+    </button>
+    
+    <button (click)="onLogout()" 
+            class="p-2 text-xs font-bold text-white/40 hover:text-red-400 transition-colors uppercase tracking-widest">
+      Logout
+    </button>
+  </div>
+</header>

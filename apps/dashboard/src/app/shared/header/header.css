@@ -1,0 +1,33 @@
+/* header.component.css */
+
+:host {
+  display: block;
+  width: 100%;
+  position: sticky; /* Sticky positioning for board navigation */
+  top: 0;
+  z-index: 50; /* Stays above board content */
+}
+
+button {
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s ease-in-out; /* Smooth hover transitions */
+}
+
+/* Custom glow effect for active Owner role */
+.bg-emerald-500\/20 {
+  box-shadow: 0 0 20px -5px rgba(52, 211, 153, 0.4);
+  border: 1px solid rgba(52, 211, 153, 0.3); 
+}
+
+/* Custom glow effect for active Admin role */
+.bg-indigo-500\/20 {
+  box-shadow: 0 0 20px -5px rgba(99, 102, 241, 0.4);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+}
+
+/* Hover feedback for interactive buttons */
+button:hover:not(:disabled) {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}

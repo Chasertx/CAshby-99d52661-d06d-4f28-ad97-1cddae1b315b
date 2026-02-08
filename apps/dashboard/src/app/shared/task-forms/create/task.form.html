@@ -1,0 +1,42 @@
+<div class="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/80 backdrop-blur-sm">
+  <div class="bg-slate-900 border border-white/10 w-full max-w-md rounded-2xl shadow-2xl overflow-hidden">
+    <div class="px-6 py-4 border-b border-white/5 flex justify-between items-center">
+      <h2 class="text-white font-bold uppercase tracking-widest text-sm">Create New Task</h2>
+      <button (click)="close.emit()" class="text-white/40 hover:text-white transition-colors">&times;</button>
+    </div>
+
+    <form [formGroup]="taskForm" (ngSubmit)="submit()" (keydown.enter)="$event.preventDefault(); submit()" class="p-6 space-y-4">
+      <div>
+        <label class="block text-xs font-bold text-white/40 uppercase mb-1">Title</label>
+        <input formControlName="title" type="text" placeholder="Task title"
+               class="w-full bg-black/20 border border-white/10 rounded-lg px-4 py-2 text-white focus:border-emerald-500 outline-none transition-all">
+      </div>
+
+      <div>
+        <label class="block text-xs font-bold text-white/40 uppercase mb-1">Description</label>
+        <textarea formControlName="description" rows="3" placeholder="Brief details..."
+                  class="w-full bg-black/20 border border-white/10 rounded-lg px-4 py-2 text-white focus:border-emerald-500 outline-none transition-all resize-none"></textarea>
+      </div>
+
+      <div>
+        <label class="block text-xs font-bold text-white/40 uppercase mb-1">Assignee Name</label>
+        <input formControlName="assignee" type="text" placeholder="e.g. John Doe"
+               class="w-full bg-black/20 border border-white/10 rounded-lg px-4 py-2 text-white focus:border-emerald-500 outline-none transition-all">
+      </div>
+
+      <div>
+        <label class="block text-xs font-bold text-white/40 uppercase mb-1">Category</label>
+        <select formControlName="category" 
+                class="w-full bg-black/20 border border-white/10 rounded-lg px-4 py-2 text-white outline-none focus:border-emerald-500 transition-all">
+          <option value="Work">Work</option>
+          <option value="Personal">Personal</option>
+        </select>
+      </div>
+
+      <button type="submit" [disabled]="!taskForm.valid"
+              class="w-full py-3 bg-emerald-500 hover:bg-emerald-400 disabled:opacity-50 disabled:hover:bg-emerald-500 text-black font-bold rounded-xl transition-all uppercase tracking-widest text-xs mt-4">
+        Create Task
+      </button>
+    </form>
+  </div>
+</div>

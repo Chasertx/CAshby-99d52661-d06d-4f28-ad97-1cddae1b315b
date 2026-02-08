@@ -1,0 +1,31 @@
+<div class="flex flex-row gap-4 w-full h-[calc(100vh-180px)] px-4">
+  <div *ngFor="let col of Statuses" class="flex flex-col flex-1 min-w-[300px] bg-black/20 backdrop-blur-md rounded-2xl border border-white/5 p-4">
+    
+    <div class="flex items-center justify-between mb-4 px-2">
+      <h2 class="text-white/70 text-[10px] font-bold uppercase tracking-widest">{{ col.label }}</h2>
+      <span class="bg-white/10 text-white/40 text-[10px] px-2 py-0.5 rounded-full">
+        {{ boardData[col.id]?.length || 0 }}
+      </span>
+    </div>
+
+    <div
+      [id]="col.id"
+      cdkDropList
+      [cdkDropListData]="boardData[col.id]"
+      [cdkDropListConnectedTo]="allStatusIds"
+      (cdkDropListDropped)="onDrop($event, col.id)"
+      class="flex-grow space-y-4 overflow-y-auto custom-scrollbar min-h-[200px] pb-20 pr-2">
+      
+      <div *ngFor="let task of boardData[col.id]" cdkDrag [cdkDragData]="task">
+        <app-task-card 
+          [task]="task" 
+          [userRole]="userRole" 
+          (delete)="handleDelete(task)">
+        </app-task-card>
+        
+        <div class="bg-white/5 rounded-xl border border-dashed border-white/20 h-24" *cdkDragPlaceholder></div>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,25 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "baseUrl": ".",
+    "paths": {
+      "@task-mgmt/shared-data": ["libs/shared/data/src/index.ts"],
+      "@task-mgmt/shared-auth": ["libs/shared/auth/src/index.ts"],
+      "@task-mgmt/shared-auth-angular": ["libs/shared/auth/src/lib/angular-rbac.guard.ts"],
+      "@task-mgmt/api-user-services": ["apps/api/src/app/users/users.service.ts"]
+    },
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "bundler",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "ES2022",
+    "module": "ESNext",
+    "lib": ["ES2022", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true
+  },
+  "exclude": ["node_modules", "tmp"]
+}

@@ -1,0 +1,8 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "esnext", // Ensure this is esnext or es2020
+    "outDir": "../../../dist/out-tsc",
+    "types": ["node"]
+  }
+}

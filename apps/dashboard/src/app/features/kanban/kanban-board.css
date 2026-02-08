@@ -1,0 +1,33 @@
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+
+/* Chrome, Safari, and Edge scrollbar dimensions */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+/* Hidden track for a cleaner minimalist look */
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Pill-shaped thumb with background clipping */
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  border: 1px solid transparent;
+  background-clip: content-box;
+}
+
+/* Enhanced visibility on hover */
+.custom-scrollbar:hover::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Tactile feedback for active scrolling */
+.custom-scrollbar::-webkit-scrollbar-thumb:active {
+  background: rgba(255, 255, 255, 0.5);
+}

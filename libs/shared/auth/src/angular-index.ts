@@ -1,0 +1,1 @@
+export * from '../src/lib/angular-rbac.guard';

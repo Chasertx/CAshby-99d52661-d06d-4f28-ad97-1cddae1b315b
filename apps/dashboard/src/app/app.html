@@ -1,0 +1,24 @@
+<div [className]="'min-h-screen transition-all duration-1000 bg-gradient-to-br ' + getBackgroundClass()">
+  
+  <app-header 
+    *ngIf="isInitialLoadComplete && !isLoginPage"
+    [role]="currentRole" 
+    (roleChanged)="handleRoleChange($event)"
+    (createTask)="addNewTask()" 
+    (logout)="onLogout()">
+  </app-header>
+
+  <main [class.p-8]="!isLoginPage" class="max-w-[1600px] mx-auto">
+    <router-outlet></router-outlet>
+  </main>
+
+  <div *ngIf="!isInitialLoadComplete && !isLoginPage" class="flex items-center justify-center h-screen">
+    <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-white"></div>
+  </div>
+
+  <app-task-form 
+    *ngIf="showCreateModal" 
+    (taskCreated)="handleTaskCreated($any($event))" 
+    (close)="showCreateModal = false">
+  </app-task-form>
+</div>
