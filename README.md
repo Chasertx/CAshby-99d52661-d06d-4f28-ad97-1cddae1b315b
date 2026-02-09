@@ -20,7 +20,8 @@ The environment is containerized using Docker Compose, which handles the API, Fr
 
 1. Clone the repository:
    git clone https://github.com/Chasertx/CAshby-99d52661-d06d-4f28-ad97-1cddae1b315b.git
-
+2. Navigate into project:
+   cd CAshby-99d52661-d06d-4f28-ad97-1cddae1b315b
 2. Launch the stack:
    docker-compose up --build
 
