@@ -19,11 +19,11 @@ The project is designed to handle multiple organizations (tenants) within a sing
 The environment is containerized using Docker Compose, which handles the API, Frontend.
 
 1. Clone the repository:
-   git clone https://github.com/Chasertx/CAshby-99d52661-d06d-4f28-ad97-1cddae1b315b.git
+                 git clone https://github.com/Chasertx/CAshby-99d52661-d06d-4f28-ad97-1cddae1b315b.git
 2. Navigate into project:
-   cd CAshby-99d52661-d06d-4f28-ad97-1cddae1b315b
+                 cd CAshby-99d52661-d06d-4f28-ad97-1cddae1b315b
 2. Launch the stack:
-   docker-compose up --build
+                 docker-compose up --build
 
 The Dashboard is served at http://localhost:80 and the API is accessible at http://localhost:3000/api.
 
